@@ -16,7 +16,7 @@ A self-hosted, open-source Kanban platform built for developers who care about d
    ```bash
    git clone git@github.com:deadman360/OpenKanban.git
    cd OpenKanban
-2 . **Install Dependencies**
+2. **Install Dependencies**
 ```bash
 docker run --rm \
     -u "$(id -u):$(id -g)" \
