@@ -2,3 +2,24 @@
 
 @source '../../../../app/Filament/**/*';
 @source '../../../../resources/views/filament/**/*';
+
+@theme{
+    --color-main-primary: #0F172A;
+    --color-main-secondary: #1E293B;
+    --color-main-primary-action: #4F46E5;
+    --color-main-borders: #334155;
+    --color-main-green: #22C55E;
+    --color-main-red: #EF4444;
+    --color-main-black: #121117;
+}
+
+.fi-body{
+    @apply bg-main-primary text-white;
+}
+.fi-section-content-ctn{
+    @apply bg-main-secondary;
+}
+.fi-sidebar{
+    @apply bg-main-black;
+}
+
