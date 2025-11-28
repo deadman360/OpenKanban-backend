@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('board_id')->constrained('boards');
+            $table->foreignId('board_id')->constrained('boards')->onDelete('cascade');
             $table->foreignId('created_by_id')->constrained('users');
             $table->foreignId('assigned_to_id')->nullable()->constrained('users');
-            $table->foreignId('status_id')->constrained('statuses');
+            $table->enum('status', ['todo', 'done', 'in_progress'])->default('todo');
             $table->string('name');
             $table->text('description')->nullable();
             $table->date('due_date')->nullable();

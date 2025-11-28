@@ -17,10 +17,10 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            "board_id" => \App\Models\Board::factory(),
-            "created_by_id" => \App\Models\User::factory(),
-            "assigned_to_id" => \App\Models\User::factory(),
-            "status_id" => \App\Models\Status::factory(),
+            "board_id" => \App\Models\Board::factory()->createOne(),
+            "created_by_id" => \App\Models\User::factory()->createOne(),
+            "assigned_to_id" => \App\Models\User::factory()->createOne(),
+            "status" => 'todo',
             "name" => $this->faker->sentence(4),
             "description" => $this->faker->paragraph(),
             "due_date" => $this->faker->date(),
