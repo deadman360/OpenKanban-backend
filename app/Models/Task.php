@@ -15,16 +15,21 @@ class Task extends Model
         'board_id',
         'created_by_id',
         'assigned_to_id',
-        'status_id',
+        'status',
         'name',
         'description',
         'due_date',
         'estimated_hours',
     ];
 
-    protected $casts = [
-        'due_date' => 'date',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'status' => 'string',
+            'due_date' => 'date',
+            'estimated_hours' => 'integer',
+        ];
+    }
 
     public function createdBy() : BelongsTo
     {
@@ -34,11 +39,6 @@ class Task extends Model
     public function assignedTo() : BelongsTo
     {
         return $this->belongsTo(User::class, 'assigned_to_id');
-    }
-
-    public function status() : BelongsTo
-    {
-        return $this->belongsTo(Status::class, 'status_id');
     }
 
     public function board() : BelongsTo
