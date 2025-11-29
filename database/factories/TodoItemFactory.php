@@ -21,7 +21,6 @@ class TodoItemFactory extends Factory
             "description" => $this->faker->paragraph(),
             "task_id" => \App\Models\Task::factory()->createOne(),
             "is_complete" => false,
-
         ];
     }
 }
