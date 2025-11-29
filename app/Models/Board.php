@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Board extends Model
 {
@@ -23,5 +24,13 @@ class Board extends Model
     public function createdBy() : BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by_id');
+    }
+
+    public function users() : BelongsToMany
+    {
+        return $this->belongsToMany(User::class)
+            ->using(BoardMember::class)
+            ->withPivot(['role'])
+            ->withTimestamps();
     }
 }
